@@ -1,0 +1,12 @@
+[package]
+name = "rfib"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rfib"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0"
+rayon = "1.9.0"

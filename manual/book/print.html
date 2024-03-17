@@ -1,0 +1,1261 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Smarkets Training</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="async_threads/thread_async_intro.html"><strong aria-hidden="true">2.</strong> Threads vs Async Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="async_threads/thread.html"><strong aria-hidden="true">2.1.</strong> System Threads</a></li><li class="chapter-item expanded "><a href="async_threads/async.html"><strong aria-hidden="true">2.2.</strong> Async</a></li><li class="chapter-item expanded "><a href="async_threads/async_and_threads.html"><strong aria-hidden="true">2.3.</strong> Why Not Both?</a></li><li class="chapter-item expanded "><a href="async_threads/rayon_intro.html"><strong aria-hidden="true">2.4.</strong> Threading with Rayon</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="async_threads/fibonacci.html"><strong aria-hidden="true">2.4.1.</strong> Fibonacci Numbers</a></li><li class="chapter-item expanded "><a href="async_threads/fibonacci_parallel.html"><strong aria-hidden="true">2.4.2.</strong> Parallel Fibonacci</a></li><li class="chapter-item expanded "><a href="async_threads/rayon_sorting.html"><strong aria-hidden="true">2.4.3.</strong> Parallel Sorting</a></li><li class="chapter-item expanded "><a href="async_threads/thread_rayon.html"><strong aria-hidden="true">2.4.4.</strong> Other Rayon Features</a></li></ol></li><li class="chapter-item expanded "><a href="async_threads/thread_scoped.html"><strong aria-hidden="true">2.5.</strong> Scoped Threads in Rust</a></li><li class="chapter-item expanded "><a href="async_threads/thread_normal.html"><strong aria-hidden="true">2.6.</strong> Regular Threads in Rust</a></li><li class="chapter-item expanded "><a href="async_threads/async_hello.html"><strong aria-hidden="true">2.7.</strong> Working with Async</a></li><li class="chapter-item expanded "><a href="async_threads/thread_async_wrap.html"><strong aria-hidden="true">2.8.</strong> Section Wrap</a></li></ol></li><li class="chapter-item expanded "><a href="concurrency_intro.html"><strong aria-hidden="true">3.</strong> Safe Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="concurency_move_default.html"><strong aria-hidden="true">3.1.</strong> Move by Default</a></li><li class="chapter-item expanded "><a href="concurrency_ownership.html"><strong aria-hidden="true">3.2.</strong> Ownership</a></li><li class="chapter-item expanded "><a href="concurrency_fear.html"><strong aria-hidden="true">3.3.</strong> Fearful Concurrency</a></li><li class="chapter-item expanded "><a href="concurrency_atomics.html"><strong aria-hidden="true">3.4.</strong> Fearless Atomics</a></li><li class="chapter-item expanded "><a href="concurrency_mutex.html"><strong aria-hidden="true">3.5.</strong> Fearless Mutexes</a></li><li class="chapter-item expanded "><a href="concurrency_mutex2.html"><strong aria-hidden="true">3.6.</strong> Fearless Mutexes</a></li><li class="chapter-item expanded "><a href="concurrency_wrap.html"><strong aria-hidden="true">3.7.</strong> Safe Concurrency Wrap</a></li></ol></li><li class="chapter-item expanded "><a href="memory_intro.html"><strong aria-hidden="true">4.</strong> Rust Memory Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="memory_drop.html"><strong aria-hidden="true">4.1.</strong> The Incredible Power of Drop</a></li><li class="chapter-item expanded "><a href="memory_drop2.html"><strong aria-hidden="true">4.2.</strong> Transitive Drop</a></li></ol></li><li class="chapter-item expanded "><a href="benchmark_intro.html"><strong aria-hidden="true">5.</strong> Measure Twice, Code Once</a></li><li class="chapter-item expanded "><a href="pyo3_intro.html"><strong aria-hidden="true">6.</strong> Supercharge Pyton with PyO3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pyo3_fib.html"><strong aria-hidden="true">6.1.</strong> Fibonacci Python</a></li></ol></li><li class="chapter-item expanded "><a href="perf_intro.html"><strong aria-hidden="true">7.</strong> Common Rust Performance Pitfalls</a></li><li class="chapter-item expanded "><a href="qa.html"><strong aria-hidden="true">8.</strong> QA and Discussion</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Smarkets Training</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="images/ardanlabs-logo.png" alt="" /></p>
+<h2 id="about-the-trainer"><a class="header" href="#about-the-trainer">About the Trainer</a></h2>
+<p>Herbert has been developing software professionally for more than 20 years. Starting with BASIC, Pascal, and then moving onto C and C++, Herbert has developed custom applications ranging from web-server filters to games. Herbert is the author of Hands-on Rust and Rust Brain Teasers.</p>
+<div class="table-wrapper"><table><thead><tr><th>Book</th><th></th><th>Publisher E-Book</th><th>Amazon</th></tr></thead><tbody>
+<tr><td>Hands-on Rust</td><td><img src="images/Hands-on%20Rust.png" alt="" /></td><td><a href="https://pragprog.com/titles/hwrust/hands-on-rust/">PragProg Page</a></td><td><a href="https://www.amazon.com/Hands-Rust-Effective-Learning-Development/dp/1680508164">Amazon Page</a></td></tr>
+<tr><td>Rust Brain Teasers</td><td><img src="images/Rust%20Brain%20Teasers.png" alt="" /></td><td><a href="https://pragprog.com/titles/hwrustbrain/rust-brain-teasers/">PragProg Page</a></td><td><a href="https://www.amazon.com/Rust-Brain-Teasers-Pragmatic-Programmers/dp/1680509179">Amazon Page</a></td></tr>
+</tbody></table>
+</div>
+<h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
+<p>I recommend bookmarking the following resources:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by Example</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust Standard Library Documentation</a></li>
+</ul>
+<h2 id="topics-well-cover"><a class="header" href="#topics-well-cover">Topics We'll Cover</a></h2>
+<ul>
+<li>Threaded vs Async Rust</li>
+<li>Fearless Concurrency</li>
+<li>Rust Memory Management</li>
+<li>Measure Twice, Code Once (Benchmarking and Testing)</li>
+<li>Supercharge Python with PyO3</li>
+<li>Common Rust Performance Pitfalls</li>
+<li>QA</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="threads-vs-async-rust"><a class="header" href="#threads-vs-async-rust">Threads vs Async Rust</a></h1>
+<p>There are two major types of concurrency in Rust:</p>
+<ul>
+<li>Threads.</li>
+<li>Asynchronous Code.</li>
+</ul>
+<p>The two are linked, but are different things---with different purposes.</p>
+<blockquote>
+<p>Knowing when to use threads and when to use async code makes a <em>huge</em> difference in performance---and makes you a happier programmer, using the solution that fits the problem.</p>
+</blockquote>
+<p><img src="async_threads/../images/threads_vs_async.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="system-threads"><a class="header" href="#system-threads">System Threads</a></h1>
+<p>A thread is a full <em>operating-system thread</em>. It appears as a schedulable item in the OS, has its own stack (but shares program memory).</p>
+<p><img src="async_threads/../images/crab-lifting.webp" alt="" /></p>
+<p>Threads are relatively heavy-weight:</p>
+<ul>
+<li>Creating a thread is expensive:
+<ul>
+<li>The OS has to create the schedulable thread.</li>
+<li>The OS has to allocate a stack for the thread.</li>
+</ul>
+</li>
+<li>Threads context-switch regularly, typically every 16ms.
+<ul>
+<li>Upside: you don't need to write fancy code to use them.</li>
+<li>Downside: they can scale equally with your CPU cores, sometimes even if they are waiting for something.</li>
+</ul>
+</li>
+<li>You can't create more than a few thousand threads. Linux shows 60k as the limit on my machine.</li>
+<li>Switching between threads is also relatively expensive:
+<ul>
+<li>Threads take it in turns, per-core.</li>
+<li>The current thread is suspended (registers saved, execution pointer saved, etc.)</li>
+<li>The new thread is restored.</li>
+<li>The new thread executes until the OS decides its another items turn.</li>
+<li>Repeat.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Threads are <em>great</em> for sustained CPU-heavy execution. They are rescheduled infrequently, and are designed for crunching.</p>
+</blockquote>
+<h2 id="an-old-adage"><a class="header" href="#an-old-adage">An Old Adage</a></h2>
+<blockquote>
+<p>I had a problem, so I used 10 threads. Now I have 10 brpolems.</p>
+</blockquote>
+<p>Threading is considered tricky - and rightly so. You're juggling multiple tasks that share the same address space. Rust makes it a <em>lot easier</em> to not suffer race conditions, or forget to synchronize your data.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="async"><a class="header" href="#async">Async</a></h1>
+<p><img src="async_threads/../images/crab-feathers.webp" alt="" /></p>
+<p>Async can run in one or more threads. The unit-of-work in an async environment is the &quot;future&quot; - a task that promises to accomplish some work. If you've used NodeJS or async in Python, you're familiar with this.</p>
+<p>An async runtime maintains a list of futures that are either active, or waiting on something else. Multitasking is <em>cooperative</em>: a task yields control when it waits for something, or explicitly yields control. Tasks are scheduled by the <em>async runtime</em>.</p>
+<p>Async tasks are <em>very</em> lightweight: you can have a <em>lot</em> of them (hundreds of thousands):</p>
+<ul>
+<li>Switching tasks just requires updating the future's status and saving the return point.</li>
+<li>Creating futures is lightweight. They allocate a few bytes for their local storage (depending upon how much you are storing).</li>
+<li>You can have hundreds of thousands, millions even of futures.</li>
+</ul>
+<p>Async is <em>great</em> for heavy input-output operations, and for servers that spend a lot of time waiting for things (disks, databases, network, etc). Async is <em>not good</em> for CPU-heavy tasks, because if you don't explicitly yield control---other tasks won't get to go.</p>
+<h3 id="runtimes"><a class="header" href="#runtimes">Runtimes</a></h3>
+<p>Rust chose to be agnostic about the async runtime. You can pick from several - ranging from <code>smol</code> (tiny, embedded friendly) all the way up to <code>tokio</code> (one thread per core, shared task lists, work-stealing to minimize pausing, the Enterprise standard). There are specialized ones like <code>glommio</code> that integrate Linux's <code>io_uring</code> for blazing input-output performance.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="why-not-both"><a class="header" href="#why-not-both">Why Not Both?</a></h1>
+<p><img src="async_threads/../images/crabs-together.webp" alt="" /></p>
+<p>You <em>can</em> mix and match threads and async! This is especially helpful if your workload is mostly CPU-heavy, but you'd like an async interface to the rest of your service stack.</p>
+<p>There are two common patterns here:</p>
+<h2 id="async-and-threaded-separately"><a class="header" href="#async-and-threaded-separately">Async and Threaded Separately</a></h2>
+<ul>
+<li>Run a single thread with an async engine.</li>
+<li>That engine sends/receives messages (instructions).</li>
+<li>The engine sends instructions into <em>channels</em> to tell the threaded architecture what to do.</li>
+</ul>
+<blockquote>
+<p>This is a great fit for a mostly threaded system that needs to maintain high-performance communication with other systems.</p>
+</blockquote>
+<h2 id="all-tokio-all-the-time"><a class="header" href="#all-tokio-all-the-time">All Tokio, All the Time</a></h2>
+<ul>
+<li>Run Tokio in &quot;multi thread&quot; flavour.</li>
+<li>Tokio makes one thread per CPU core, with a task list for each thread.</li>
+<li>Task lists can &quot;work steal&quot; from one another - reducing the risk of bogging down.</li>
+<li>Tasks that are going to take a while use <code>spawn_blocking</code> to run inside Tokio's thread pool.</li>
+</ul>
+<blockquote>
+<p>This is a great fit for a service architecture focused on performance, that sometimes needs to perform heavy calculation in threads.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="threading-with-rayon"><a class="header" href="#threading-with-rayon">Threading with Rayon</a></h1>
+<p>Let's start by looking at Rayon. Rayon is sometimes called &quot;easy mode&quot; by Rust programmers. That's not a bad thing: sometimes you want easy---especially if its blazing fast, and resource efficient at the same time!</p>
+<p>Rayon is a crate that is widely used in the Rust ecosystem (and directly led to some core Rust features). Rayon:</p>
+<ul>
+<li>Builds a thread pool (one thread per available CPU core by default) on start-up. You pay for thread creation once.</li>
+<li>Implements <em>parallel iterators</em> to let you take normal Rust code and easily run it in parallel---<em>if</em> your problem is readily parallelizable.</li>
+<li>Provides lots of helpers such as parallel sorting.</li>
+<li>Implements a scoped-threading task system, similar to the standard library---but remaining inside the global thread pool so you don't oversubscribe your tasks.</li>
+</ul>
+<p>Rayon isn't the answer to everything: it's bad at making a long-running thread that you want to keep working while your program does other things. But its a great place to start, and to get a feel for how Rust can make threading feel easy.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fibonacci-numbers"><a class="header" href="#fibonacci-numbers">Fibonacci Numbers</a></h1>
+<p>Fibonacci numbers form a sequence where each number is the sum of the two preceding ones, starting from 0 and 1.</p>
+<p>Fibonacci numbers are also a good performance test, because generating them the &quot;obvious&quot; recursive way can be pretty slow. When you're testing performance with threads, it's a good idea to have a workload that will keep your CPU warm!</p>
+<blockquote>
+<p>The code for this is in <code>code/threads/fib_sync</code></p>
+</blockquote>
+<p>Here's a single-threaded Fibonacci program:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn fibonacci(n: u64) -&gt; u64 {
+    match n {
+        0 =&gt; 1,
+        1 =&gt; 1,
+        _ =&gt; fibonacci(n - 1) + fibonacci(n - 2),
+    }
+}
+
+fn main() {
+    // Shorthand: put 0 through 39 into a vector (list).
+    let targets: Vec&lt;u64&gt; = (0 .. 40).collect();
+
+    // Start the timer
+    let now = std::time::Instant::now();
+    let results: Vec&lt;u64&gt; = targets
+        // Iterate through each target
+        .iter()
+        // Map transforms each entry into the results of the function call
+        .map(|n| fibonacci(*n))
+        // Collect gathers the results into a collection
+        .collect();
+
+    // Collect how much time has passed
+    let elapsed = now.elapsed();
+
+    // Print the result
+    println!(&quot;Completed in {} seconds.&quot;, elapsed.as_secs_f32());
+    println!(&quot;{results:?}&quot;);
+}</code></pre></pre>
+<p>Calculating the first 40 Fibonacci numbers in <code>debug</code> mode took 0.93 seconds on my laptop. In optimized mode (<code>cargo run --release</code>) it's a much more reasonable 0.31 seconds.</p>
+<p>The online Rust Playground averages about 2.39 seconds for this task.</p>
+<p>Not terrible---but we can do better!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parallel-fibonacci"><a class="header" href="#parallel-fibonacci">Parallel Fibonacci</a></h1>
+<p>Rayon adds &quot;parallel iterators&quot; to make this easy to paralleize. We can parallelize this by adding a dependency to rayon:</p>
+<pre><code class="language-bash">cargo add rayon
+</code></pre>
+<p>And replacing one line of code:</p>
+<blockquote>
+<p>The code for this is in <code>code/threads/fib_rayon</code></p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">// Import the &quot;prelude&quot; (commonly used functions) from Rayon
+use rayon::prelude::*;
+
+fn fibonacci(n: u64) -&gt; u64 {
+    match n {
+        0 =&gt; 1,
+        1 =&gt; 1,
+        _ =&gt; fibonacci(n - 1) + fibonacci(n - 2),
+    }
+}
+
+fn main() {
+    let targets: Vec&lt;u64&gt; = (0 .. 40).collect();
+    let now = std::time::Instant::now();
+    let results: Vec&lt;u64&gt; = targets
+        .par_iter() // &lt;--- Use `par_iter` instead of `iter`
+        .map(|n| fibonacci(*n))
+        .collect();
+    let elapsed = now.elapsed();
+    println!(&quot;Completed in {}&quot;, elapsed.as_secs_f32());
+    println!(&quot;{results:?}&quot;);
+}</code></pre></pre>
+<p>Rayon creates a 1-thread per CPU thread-pool by default, and divides tasks automatically (with work-stealing so no thread goes idle). My <code>debug</code> performance improved to 0.46 seconds, and my <code>release</code> performance is up to 0.122 seconds.</p>
+<p>Note that you'll see limited improvement in the Rust Playground---it doesn't offer many CPUs!</p>
+<p>So with two lines of code, we've parallelized the whole calculation. The performance increase is pretty good---not the best you could achieve, but it's hard to beat using two lines of code!</p>
+<blockquote>
+<p>Rayon is a great choice when you have a readily parallized algorithm. It can often do it for you!</p>
+</blockquote>
+<p>Most of the commonly used iterator functions are <a href="https://docs.rs/rayon/latest/rayon/iter/trait.ParallelIterator.html#provided-methods">available</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parallel-sorting"><a class="header" href="#parallel-sorting">Parallel Sorting</a></h1>
+<p>Rayon also includes parallel versions of the regular Rust sort operations:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use rayon::prelude::*;
+
+fn main() {
+    const CAPACITY: usize = 1_000_000;
+    let mut random = Vec::with_capacity(CAPACITY);
+    for _ in 0..CAPACITY {
+        random.push(rand::random::&lt;u64&gt;());
+    }
+
+    let now = std::time::Instant::now();
+    let mut v = random.to_vec();
+    v.sort();
+    let elapsed = now.elapsed();
+    println!(&quot;Regular Sort of {CAPACITY} Numbers Completed in  {}&quot;, elapsed.as_secs_f32());
+
+
+    let now = std::time::Instant::now();
+    let mut v = random.to_vec();
+    v.par_sort();
+    let elapsed = now.elapsed();
+    println!(&quot;Parallel Sort of {CAPACITY} Numbers Completed in {}&quot;, elapsed.as_secs_f32());
+}
+</code></pre></pre>
+<p>On my work computer, I get the following results:</p>
+<pre><code>Regular Sort of 1000000 Numbers Completed in  0.055435345
+Parallel Sort of 1000000 Numbers Completed in 0.0088947
+</code></pre>
+<blockquote>
+<p>Note that the parallel sort can be <em>slower</em> than a regular sort for small data-sets!</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="what-else-can-it-do"><a class="header" href="#what-else-can-it-do">What Else can it Do?</a></h2>
+<p>Rayon also includes mechanisms to:</p>
+<h3 id="join"><a class="header" href="#join">Join</a></h3>
+<p><code>join</code> lets you spawn two threaded tasks and receive the results when they both finish. Not to be confused with the regular <code>join</code> command---the naming is unfortunate.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn a() -&gt; u32 {
+    let mut n = 0;
+    for _ in 0..1_000_000 {
+        n += 1;
+    }
+    n
+}
+
+fn b() -&gt; u32 {
+    let mut n = 0;
+    for _ in 0..1_000_000 {
+        n += 1;
+    }
+    n
+
+}
+
+fn main() {
+    let (a,b) = rayon::join(a, b);
+    println!(&quot;a: {a}, b: {b}&quot;);
+}</code></pre></pre>
+<h2 id="thread-scopes"><a class="header" href="#thread-scopes">Thread Scopes</a></h2>
+<p>You can also use Rayon to spawn your own tasks. This is just like Rust's regular thread scoping, but spawns tasks inside the Rayon tasks-list.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn do_something(n: i32) {
+    for i in 0..n*10 {
+        println!(&quot;{n} - do_something: {}&quot;, i);
+    }
+}
+
+fn main() {
+    rayon::scope(|scope| {
+        for i in 0..10 {
+            scope.spawn(move |_| {
+                do_something(i);
+            });
+        }
+    });
+}</code></pre></pre>
+<p>It is guaranteed that all tasks will complete before the scope terminates.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scoped-threads-in-rust"><a class="header" href="#scoped-threads-in-rust">Scoped Threads in Rust</a></h1>
+<p>There are two major methods for creating threads in Rust. Let's start with <em>scoped threads</em>. Similar to Rayon, threads spawned inside a scope are <em>guaranteed</em> to finish when the scope ends - so borrowing values from outside of the scope is easier, and there's no need to remember to wait for your threads.</p>
+<p>You don't need any dependencies.</p>
+<p>Here's a very basic example using two scoped threads:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread::scope;
+
+fn main() {
+    scope(|scope| {
+        for i in 0..10 {
+            scope.spawn(move || {
+                println!(&quot;Thread number {}&quot;, i);
+            });
+        }
+    });
+}</code></pre></pre>
+<blockquote>
+<p>Note the mysterious <code>move</code>, which isn't really moving anything. We'll talk about that in a bit.</p>
+</blockquote>
+<p>This program spawns 10 threads, and they each print a greeting. The order in which the greetings appear is up to your operating system.</p>
+<blockquote>
+<p>Scoped threads are great when you want to &quot;fan out&quot; to child threads, and be sure they are all done when you resume.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="regular-threads-in-rust"><a class="header" href="#regular-threads-in-rust">Regular Threads in Rust</a></h1>
+<p>The building block for threads is <code>std::thread</code>. Here's the &quot;hello world&quot; of regular threads:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    let handle1 = std::thread::spawn(|| {
+        println!(&quot;Thread number 1&quot;);
+    });
+    let handle2 = std::thread::spawn(|| {
+        println!(&quot;Thread number 2&quot;);
+    });
+    handle1.join().unwrap();
+    handle2.join().unwrap();
+}</code></pre></pre>
+<p>Threads keep running until either you <code>join</code> them, or your program stops. If you take the <code>join</code> calls away, there's no guaranty that your program will do anything at all!</p>
+<h2 id="retrieving-data-from-threads"><a class="header" href="#retrieving-data-from-threads">Retrieving Data from Threads</a></h2>
+<p>Join handles also let you retrieve results from threads:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn double_it(n: i32) -&gt; i32 {
+    n * 2
+}
+
+fn main() {
+    let handle = std::thread::spawn(|| {
+        double_it(5)
+    });
+    let result = handle.join().unwrap();
+    println!(&quot;Result: {}&quot;, result);
+}</code></pre></pre>
+<h2 id="sending-data-between-threads-with-channels"><a class="header" href="#sending-data-between-threads-with-channels">Sending Data Between Threads with Channels</a></h2>
+<p>Channels are Go's secret weapon, so Rust implemented them too.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn receiver(rx: std::sync::mpsc::Receiver&lt;i32&gt;) {
+    while let Ok(received) = rx.recv() {
+        println!(&quot;Got: {}&quot;, received);
+
+        // Without this, the program will run forever
+        if received == 10 {
+            break;
+        }
+    }
+}
+
+fn main() {
+    let (tx, rx) = std::sync::mpsc::channel();
+    let handle = std::thread::spawn(move || {
+        receiver(rx)
+    });
+
+    for i in 1..=10 {
+        tx.send(i).unwrap();
+    }
+
+    handle.join().unwrap();
+}</code></pre></pre>
+<p>The <em>great</em> part is that you can use any type. So you can send enumerations to issue commands, even send function pointers (that's part of Rayon's magic trick!).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="working-with-async"><a class="header" href="#working-with-async">Working with Async</a></h1>
+<p>Async in Rust requires a runtime (it provides task scheduling, IO interaction and scheduling). So let's make a project with <code>tokio</code> as the runtime:</p>
+<pre><code class="language-bash">cargo add tokio -F full # The feature flag &quot;full&quot; enables all the features
+</code></pre>
+<p>Now we'll make a simple &quot;Hello, World&quot; in async Rust:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">async fn say_hello() {
+    println!(&quot;Hello, world!&quot;);
+}
+
+#[tokio::main]
+async fn main() {
+    say_hello().await;
+}</code></pre></pre>
+<p>Things to note:</p>
+<ul>
+<li>We've decorated <code>main()</code> with <code>#[tokio::main]</code>. This macro wraps the actual invocation of Tokio for you. It's really creating a Tokio runtime and calling a function called <code>block_on</code>.</li>
+<li>The <code>async</code> keyword on functions. This is syntax sugar that changes your function to return a <code>Future</code> type.</li>
+<li>So <code>say_hello()</code> doesn't <em>do</em> anything other than create a <code>Future</code> variable.</li>
+<li>The <code>Future</code> doesn't <em>run</em> until you <code>await</code> it.</li>
+</ul>
+<p><code>.await</code> does several things:</p>
+<ul>
+<li>It adds your future to the list of tasks awaiting execution.</li>
+<li>It pauses your current function, noting the return location.</li>
+<li>The task queue continues to the next task.</li>
+</ul>
+<blockquote>
+<p>If you don't <code>await</code> (or otherwise execute) a <code>Future</code>---<em>nothing happens</em>.</p>
+</blockquote>
+<h2 id="single-or-multi-threaded"><a class="header" href="#single-or-multi-threaded">Single or Multi-Threaded</a></h2>
+<p>Async can work on a single thread---it just maintains the task queue. Here's the same program in single-threaded mode:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">async fn say_hello() {
+    println!(&quot;Hello, world!&quot;);
+}
+
+#[tokio::main(flavor = &quot;current_thread&quot;)]
+async fn main() {
+    say_hello().await;
+}</code></pre></pre>
+<p>Staying in single-thread mode, let's use <code>join!</code> to spawn a few tasks at once and wait for them:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">async fn looper(n: i32) {
+    for i in 0..5 {
+        println!(&quot;[{n}]: looper: {}&quot;, i);
+    }
+
+}
+
+#[tokio::main(flavor = &quot;current_thread&quot;)]
+async fn main() {
+    tokio::join!(looper(1), looper(2), looper(3));
+}</code></pre></pre>
+<p>This results in serialized execution: tasks 1 through 3 run in order. This illustrates the biggest problem with async code: <em>blocking</em>. If your task keeps running, it doesn't allow other tasks to execute. Now let's explicitly tell teach task to yield control:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">async fn looper(n: i32) {
+    for i in 0..5 {
+        println!(&quot;[{n}]: looper: {}&quot;, i);
+        tokio::task::yield_now().await;
+    }
+
+}
+
+#[tokio::main(flavor = &quot;current_thread&quot;)]
+async fn main() {
+    tokio::join!(looper(1), looper(2), looper(3));
+}</code></pre></pre>
+<p>Now the tasks run in-turn. You are explicitly telling each task to give up control of the CPU and let the next task run. You <em>aren't</em> paying for threads (in scheduling time or overhead), but you <em>are</em> cooperatively multitasking.</p>
+<p>You can also use <code>spawn_blocking</code> if you need to run a task in a thread. Tokio maintains a thread pool, so you have some of the advantages of Rayon (you pay for thread creation up front):</p>
+<pre><pre class="playground"><code class="language-rust edition2021">async fn looper(n: i32) {
+    tokio::task::spawn_blocking(move || {
+        for i in 0..10 {
+            println!(&quot;[{n}]: looper: {}&quot;, i);
+        }
+    }).await.unwrap();
+}
+
+#[tokio::main()]
+async fn main() {
+    tokio::join!(looper(1), looper(2), looper(3));
+}</code></pre></pre>
+<blockquote>
+<p>Note that we had to remove <code>current_thread</code> to allow multiple threads to run. Otherwise Tokio assumes you <em>really</em> mean it when you say you want to use one thread!</p>
+</blockquote>
+<h2 id="so-why-would-you-do-this"><a class="header" href="#so-why-would-you-do-this">So Why Would You Do This?</a></h2>
+<p>Async really shines for input/output. Let's take a look at this program:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use tokio::{net::TcpListener, spawn, io::{AsyncReadExt, AsyncWriteExt}};
+
+async fn tcp_server() -&gt; anyhow::Result&lt;()&gt; {
+    println!(&quot;Listening on 127.0.0.1:3001&quot;);
+    let listener = TcpListener::bind(&quot;127.0.0.1:3001&quot;).await?;
+    loop {
+        let (socket, _address) = listener.accept().await?;
+        spawn(server_receive(socket));
+    }
+
+}
+
+async fn server_receive(mut socket: tokio::net::TcpStream) -&gt; anyhow::Result&lt;()&gt; {
+    let mut buffer = [0; 1024];
+    let n = socket.read(&amp;mut buffer).await?;
+    println!(&quot;Server received: {n} bytes&quot;);
+    socket.write_all(&amp;buffer[0..n]).await?;
+    Ok(())
+}
+
+async fn tcp_client(n: i32) -&gt; anyhow::Result&lt;()&gt; {
+    let mut socket = tokio::net::TcpStream::connect(&quot;127.0.0.1:3001&quot;).await?;
+    let message = format!(&quot;Hello, world! from client {n}&quot;);
+    socket.write_all(message.as_bytes()).await?;
+    let mut buffer = [0; 1024];
+    let n = socket.read(&amp;mut buffer).await?;
+    println!(&quot;Echoed message: {}&quot;, std::str::from_utf8(&amp;buffer[0..n])?);
+    Ok(())
+}
+
+#[tokio::main(flavor = &quot;current_thread&quot;)]
+async fn main() {
+    // Start the TCP server
+    spawn(tcp_server());
+    tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+    let mut set = tokio::task::JoinSet::new();
+    for i in 0 .. 1000 {
+        set.spawn(tcp_client(i));
+    }
+    tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+}</code></pre></pre>
+<p>Walking through it:</p>
+<ul>
+<li>We're sticking to single-threaded mode. No threads here.</li>
+<li>We spawn the <code>tcp_server</code>
+<ul>
+<li>In turn, it listens on 127.0.0.1:3001 (TCP).</li>
+<li>When a connection arrives, it spawns a new task - <code>server_receive</code>.
+<ul>
+<li>In turn, <code>server_receive</code> prints how many bytes it received.</li>
+<li>It then replies with the same message.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tcp_client</code> connects to the server, and sends it a message. It prints the reply.</li>
+<li>We use <code>JoinSet</code>, a Tokio helper for spawning lots of tasks at once.</li>
+</ul>
+<p>So in 41 lines of code, we've made a TCP server and a TCP client. It doesn't do much - but it is very fast.</p>
+<p>Now let's build it with <code>cargo build --release</code>. We'll measure it with:</p>
+<pre><code class="language-bash">/usr/bin/time -v ../../target/release/async_tcp # -l on Macs
+</code></pre>
+<p>The maximum resident set size was 4,640 bytes! And it peaked at 3% CPU usage. So very little code, and <em>very</em> lean and mean network code. Plus, it all ran in a single thread.</p>
+<p>Switching off the single-thread mode ups CPU usage to 20% - as it could use many cores, but remained very small (4640 bytes resident set).</p>
+<blockquote>
+<p>Conclusion: Rust Async offers extremely lean, mean, high-performance IO.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="threads-and-async"><a class="header" href="#threads-and-async">Threads and Async</a></h1>
+<p>Use <strong>Rayon threads</strong> when you want:</p>
+<ul>
+<li>Simple code</li>
+<li>Easy parallelization of tasks</li>
+<li>Your problem is embarrassingly parallel and fits into the Rayon iterator model</li>
+</ul>
+<p>Use <strong>threads</strong> when you want:</p>
+<ul>
+<li>Maximum CPU throughput</li>
+<li>You can keep the number of threads manageable
+<ul>
+<li>1 per CPU core is ideal</li>
+<li>Maximum is around 60,000---operating system dependent.</li>
+</ul>
+</li>
+</ul>
+<p>Use <strong>async</strong> when you want:</p>
+<ul>
+<li>Maximum input/output speed</li>
+<li>Accept that the network, database, file I/O will cause latency</li>
+<li>Convert that latency into throughput by letting other tasks run while you wait</li>
+</ul>
+<p>And in an ideal world: mix and match as needed, with either <code>spawn_blocking</code> or channels to give commands to threads. You can even use <code>rayon</code> inside async functions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="safe-concurrency"><a class="header" href="#safe-concurrency">Safe Concurrency</a></h1>
+<p>Rust makes a really big deal about claiming <em>fearless concurrency</em>. Fearless comes in two flavours:</p>
+<ul>
+<li>It's not hard to use threads or async code. (We just did some!)</li>
+<li>Rust tries really hard to make it difficult to shoot yourself in the foot.</li>
+</ul>
+<p>Before we dive into how this works, let's start with a couple of fundamental Rust concepts.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="move-by-default"><a class="header" href="#move-by-default">Move by Default</a></h1>
+<p>One of the first things that surprises everyone who comes to Rust is &quot;move by default&quot;. Let's take a look!</p>
+<p>You'd normally expect a simple program like this to Just Work(TM):</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn print(s: String) {
+    println!(&quot;{s}&quot;);
+}
+
+fn main() {
+    let my_string = String::from(&quot;Hello&quot;);
+    print(my_string);
+    println!(&quot;{my_string}&quot;);
+}</code></pre></pre>
+<p>It doesn't even compile! What's up with that?</p>
+<p><strong>Rust is &quot;move by default&quot;</strong> : When you pass an undecorated variable to a function, the variable <em>moves</em> into the function and no longer exists in the parent scope!</p>
+<p>You <em>could</em> get around this by moving it right back out again:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn print(s: String) -&gt; String {
+    println!(&quot;{s}&quot;);
+    s
+}
+
+fn main() {
+    let my_string = String::from(&quot;Hello&quot;);
+    let my_string = print(my_string);
+    println!(&quot;{my_string}&quot;);
+}</code></pre></pre>
+<p>This compiles, but would make for a pretty tedious programming experience (not to denegrate some functional languages in which is the norm!).</p>
+<p>What Rust is <em>really</em> doing is keeping track of &quot;ownership&quot;. <code>main</code> declared <code>my_string</code>, so it belongs to <code>main</code>. <em>Moving</em> it into <code>print</code> means that <code>print</code> now <em>owns</em> it. It's up to <code>print</code> to destroy it (no manual destruction needed - we'll talk about that later).</p>
+<p>But what if you want <code>print</code> to just <em>use</em> your string? You can <em>lend</em> it to other functions, who in turn <em>borrow</em> it (hence the name &quot;borrow checker&quot;):</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn print(s: &amp;String) {
+    println!(&quot;{s}&quot;);
+}
+
+fn main() {
+    let my_string = String::from(&quot;Hello&quot;);
+    print(&amp;my_string);
+    println!(&quot;{my_string}&quot;);
+}</code></pre></pre>
+<p>Notice that we've had to add <code>&amp;</code> to <em>lend</em>, and <code>&amp;</code> to indicate that we know we're <em>borrowing</em>. Rust is strict about this: you can't change a function signature, forget to update the caller and have odd things happen!</p>
+<p>So ownership now remains with <code>main</code> the whole time.</p>
+<p>You can even let functions change/<em>mutate</em> your loaned variable:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn print(s: &amp;mut String) {
+    s.push_str(&quot; World&quot;);
+    println!(&quot;{s}&quot;);
+}
+
+fn main() {
+    let mut my_string = String::from(&quot;Hello&quot;);
+    print(&amp;mut my_string);
+    println!(&quot;{my_string}&quot;);
+}</code></pre></pre>
+<p>Notice again Rust is being a little pedantic:</p>
+<ul>
+<li>We had to add <code>mut</code> to the variable itself to allow it to be changed.</li>
+<li>We had to indicate both that we're <em>lending</em> and <em>borrowing</em> mutably.</li>
+</ul>
+<blockquote>
+<p>The need for explicit borrowing like this is a hangover from C++, where you can change the function and not remember to change the caller---and suddenly copy gigabytes of memory for no good reason.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership"><a class="header" href="#ownership">Ownership</a></h1>
+<p>So where are we going with moving and borrowing? Rust is all about understanding <em>ownership</em>. A variable is <em>owned</em> somewhere, and when it falls out of scope (is no longer referenced) it is <em>dropped</em>. We'll talk about this in memory management, later this afternoon.</p>
+<p>There's a reason behind the ownership system:</p>
+<ul>
+<li>The Rust compiler <em>always</em> knows where a variable actually is.</li>
+<li>The <em>borrow checker</em> strictluy enforces a compile-time rule that:
+<ul>
+<li>EITHER
+<ul>
+<li>You can have as many immutable (read-only) references as you want.</li>
+</ul>
+</li>
+<li>OR (exclusive)
+<ul>
+<li>You can have one mutable writer to a variable.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You <em>cannot</em> have more than one mutable writer to a variable, or a mutable writer while a reader exists. It won't compile.</p>
+<p>That may sound like a strange restriction, but it allows Rust to offer Fearless Concurrency. Let's work through what that means.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fearful-concurrency"><a class="header" href="#fearful-concurrency">Fearful Concurrency</a></h1>
+<blockquote>
+<p>Hands-up if threads have ever given you a headache. Preferably not including today!</p>
+</blockquote>
+<p>Concurrency has a reputation for being <em>hard</em>. Rust makes it easier, and eliminates many of the most common bugs.</p>
+<p>Let's start with some Python:</p>
+<pre><code class="language-python">#!/usr/bin/python3
+import threading
+
+counter = 0
+
+def one():
+    return 1
+
+def adder():
+    global counter
+    for _ in range(1000000):
+        counter = counter + one()
+
+threads = []
+for i in range(10):
+    thread = threading.Thread(target=adder)
+    thread.start()
+    threads.append(thread)
+
+for thread in threads:
+    thread.join()
+
+print(counter)
+</code></pre>
+<p>Note that Python 3.9+ has a little bit of race-condition protection in, but we fooled it by adding the <code>one()</code> function. Prior to 3.9, you didn't need that. What does this program return?</p>
+<pre><code>python3 racey.py
+3638217
+python3 racey.py
+4307520
+</code></pre>
+<p>And so on --- the program rarely gives the same answer twice! This is called a <em>race condition</em>. It happens because adding to a variable is a multi-step process:</p>
+<ol>
+<li>Retrieve the current value.</li>
+<li>Add one to it.</li>
+<li>Store the current value.</li>
+</ol>
+<p>Any other thread may interrupt while this is happening, causing you to miss part of the task.</p>
+<p>This is a <strong>big</strong> problem. Uber found several thousand race conditions in their systems! It's also one of the primary deterrents to writing concurrent code. It's just too easy to mess up, with no warning or errors.</p>
+<p>You <em>can</em> write the same bug in Rust, if you try really hard:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread::scope;
+
+fn main() {
+    static mut COUNTER: usize = 0;
+    scope(|scope| {
+        for _ in 0..10 {
+            scope.spawn(|| {
+                for _ in 0..1_000_000 {
+                    unsafe {
+                        COUNTER += 1;
+                    }
+                }
+            });
+        }
+    });
+    unsafe {
+        println!(&quot;Counter: {COUNTER}&quot;);
+    }
+}</code></pre></pre>
+<blockquote>
+<p>PLEASE don't do this</p>
+</blockquote>
+<p>Rust <em>will</em> let you have this bug, too! But you need <code>unsafe</code> everywhere to do it. If you try without unsafe, it simply won't compile.</p>
+<p>Let's try this without <code>unsafe</code> tags:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread::scope;
+
+fn main() {
+    static mut COUNTER: usize = 0;
+    scope(|scope| {
+        for _ in 0..10 {
+            scope.spawn(|| {
+                for _ in 0..1_000_000 {
+                    COUNTER += 1;
+                }
+            });
+        }
+    });
+    println!(&quot;Counter: {COUNTER}&quot;);
+}</code></pre></pre>
+<p>It won't compile with the error message &quot;use of a mutable static requires an unsafe tag&quot;. Ok, so we've used a mutable static. Can we use a regular mutable reference?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread::scope;
+
+fn main() {
+    let mut counter: usize = 0;
+    scope(|scope| {
+        for _ in 0..10 {
+            scope.spawn(|| {
+                for _ in 0..1_000_000 {
+                    counter += 1;
+                }
+            });
+        }
+    });
+    println!(&quot;Counter: {counter}&quot;);
+}</code></pre></pre>
+<p>This won't compile either, with the error message that you can't mutably borrow <code>counter</code> more than once. That's the key here: the borrow checker prevents race conditions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fearless-atomics"><a class="header" href="#fearless-atomics">Fearless Atomics</a></h1>
+<p>Rust wouldn't be very useful if it implemented threads really well and then didn't let you change anything with them. You <em>could</em> structure it so that each thread runs entirely indepenently and returns a value (in fact, if that fits your problem - you should). But sometimes you can't avoid the need to share.</p>
+<p>But I just told you that you can't share borrows?</p>
+<p>In this case, we're using an integer---and CPUs have primitives called &quot;atomics&quot;. An atomic is a number designed to be safely shared. Instead of the usual 3-phase update (fetch, increment, store) it guarantees that other cores won't interrupt the process - so you don't end up with corrupt data.</p>
+<p>Here's the same counter in Rust with atomics:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::sync::atomic::Ordering::Relaxed;
+use std::sync::atomic::AtomicU32;
+
+fn main() {
+    let counter = AtomicU32::new(0);
+    std::thread::scope(|scope| {
+        let t1 = scope.spawn(|| {
+            for _ in 0 .. 1000000 {
+                counter.fetch_add(1, Relaxed);
+            }
+        });
+        let t2 = scope.spawn(|| {
+            for _ in 0 .. 1000000 {
+                counter.fetch_add(1, Relaxed);
+            }
+        });
+    });
+    println!(&quot;{}&quot;, counter.load(Relaxed));
+}</code></pre></pre>
+<p>This will give the same answer every time. The syntax for atomics is a little more explicit, and there are only so many operations available---but they are <em>really</em> fast (CPU accelerated).</p>
+<p>So <em>why</em> does this work, and a regular integer doesn't? Is it because Atomics are super-special (they are, but that's not the answer).</p>
+<p>There are two traits (properties/interfaces) that are applied for you when applicable to all types in Rust---your own and built-in types:</p>
+<ul>
+<li>A type with <code>Send</code> can be sent between threads. Most types are <code>Send</code>.</li>
+<li>A type with <code>Sync</code> can be <em>read</em> safely across threads, immutably.</li>
+</ul>
+<p>Ok, so <code>Sync</code> means it can be <em>read</em> across threads. But we're not just <em>reading</em>? The second half of this is <em>interior mutability</em>. A type that has interior mutability is immutable from <em>outside</em>---the type itself can be <code>Sync</code> and borrowed as much as you want.</p>
+<p>Internally, it protects its contents from concurrent writes. Atomics do this with CPU intrinsics. Mutexes---the next slide---do this for anything.</p>
+<p>So you are <em>immutably borrowing</em> the atomic---you just have a pointer to where it is. Then the atomic itself ensures that access obeys Rust's very strict rules---so it can safely declare itself <code>Sync</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fearless-mutexes"><a class="header" href="#fearless-mutexes">Fearless Mutexes</a></h1>
+<p>You have have run into Mutexes in Python:</p>
+<blockquote>
+<p>This is available in <code>code/mutex.py</code></p>
+</blockquote>
+<pre><code class="language-python">#!/usr/bin/python3
+from threading import Thread, Lock
+
+counter = 0
+mutex = Lock()
+
+def one():
+    return 1
+
+def adder():
+    global counter
+    for _ in range(1000000):
+        with mutex:
+            counter = counter + one()
+
+threads = []
+for i in range(10):
+    thread = Thread(target=adder)
+    thread.start()
+    threads.append(thread)
+
+for thread in threads:
+    thread.join()
+
+print(counter)
+</code></pre>
+<p>We declare &quot;mutex&quot; to be a <code>Lock()</code> and then the <code>with mutex</code> locks it. This prevents your race condition.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spot-the-difference"><a class="header" href="#spot-the-difference">Spot The Difference</a></h1>
+<p>Now let's look at <code>code/mutex_oops.py</code>. Can you spot the difference?</p>
+<pre><code class="language-python">#!/usr/bin/python3
+from threading import Thread, Lock
+
+counter = 0
+mutex = Lock()
+
+def one():
+    return 1
+
+def adder():
+    global counter
+    for _ in range(1000000):
+            counter = counter + one()
+
+threads = []
+for i in range(10):
+    thread = Thread(target=adder)
+    thread.start()
+    threads.append(thread)
+
+for thread in threads:
+    thread.join()
+
+print(counter)
+</code></pre>
+<blockquote>
+<p>In case you missed it, <code>with mutex:</code> is gone from the second example.</p>
+</blockquote>
+<p>The problem with mutexes in most languages is that you have to remember to use them. It's really easy to forget one lock, and <em>boom</em> - you have a race condition.</p>
+<p>Let's look at a Rust mutex setup:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::sync::{Arc, Mutex};
+
+fn main() {
+    let counter = Arc::new(Mutex::new(0));
+    std::thread::scope(|scope| {
+        let my_counter = counter.clone();
+        let t1 = scope.spawn(move || {
+            for _ in 0 .. 1000000 {
+                let mut lock = my_counter.lock().unwrap();
+                *lock += 1;
+            }
+        });
+
+        let my_counter = counter.clone();
+        let t2 = scope.spawn(move || {
+            for _ in 0 .. 1000000 {
+                let mut lock = my_counter.lock().unwrap();
+                *lock += 1;
+            }
+        });
+        let _ = t1.join();
+        let _ = t2.join(); // let _ means &quot;ignore&quot; - we're ignoring the result type
+    });
+    let lock = counter.lock().unwrap();
+    println!(&quot;{}&quot;, *lock);
+}</code></pre></pre>
+<blockquote>
+<p>We'll talk about <code>Arc</code> later. For now, think of it as an easy way to share data across threads.</p>
+</blockquote>
+<p>The basics should look very familiar: we create a mutex and lock it (and <code>unwrap</code> the result, because Rust mutexes can tell you if a thread crashed while it held the mutex). But notice the significant difference:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let counter = Arc::new(Mutex::new(0));
+<span class="boring">}</span></code></pre></pre>
+<p>We've <em>wrapped the mutex around the data</em>. You <em>cannot</em> forget to lock the mutex, because locking is the only way to get to the data!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="safe-concurrency-wrap"><a class="header" href="#safe-concurrency-wrap">Safe Concurrency Wrap</a></h1>
+<p>So Rust concurrency is fearless because it's relatively easy to use---and <em>it won't let you forget your locks and make a data race</em>. Data races won't compile, so your precious data remains intact.</p>
+<blockquote>
+<p>It's always better to fail to compile than give a wrong answer! It's even better to crash than give a wrong answer. You can diagnose those; you can spend a really long time figuring out why a number isn't quite right... hopefully you noticed!</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-memory-management"><a class="header" href="#rust-memory-management">Rust Memory Management</a></h1>
+<blockquote>
+<p>Rust <strong>is not</strong> a garbage collected language---but it can feel like one in normal usage. You very rarely have to resort to actual direct memory management; but you can if you need to!</p>
+</blockquote>
+<p>Anyone here familiar with C and C++. Does this give you nightmares?</p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct MyStruct {
+    int number;
+};
+
+int main() {
+    MyStruct * heap_struct = new MyStruct();
+    // Forget this and you have a memory leak!
+    delete heap_struct;
+    
+    struct MyStruct * c_struct = (struct MyStruct *)malloc(sizeof(struct MyStruct));
+    // Same again
+    free(c_struct);
+    
+    return 0;
+}
+</code></pre>
+<p>When you call <code>new</code> or <code>free</code>, you are <em>allocating</em> memory on the heap (as opposed to the stack). If you forget to clean up after yourself, you have a memory leak. In this case, it's harmless---the program is going away anyway. In a big program, leaking from time to time can gradually increase your memory usage until the whole program is killed by the operating system.</p>
+<p>Python, Java, Go, C# all solve this by being <em>garbage collected</em> languages. You allocate, the system notices that you aren't using a variable anymore---and it is destroyed for you. That's <em>wonderful</em>---but it can be a problem when you need very high performance. From time to time, the garbage collector will run one of various algorithms to find the unused space and clean it up. You have limited control over when it does this. So you can often have a system with really predictable latency <em>most of the time</em>, and the occasional sudden performance burp.</p>
+<p>Rust doesn't do that.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-incredible-power-of-drop"><a class="header" href="#the-incredible-power-of-drop">The Incredible Power of Drop</a></h1>
+<p>C++ invented a pattern called <code>RAII</code> - &quot;Resource Acquisition is Initialization&quot;. You can tell it's a C++ term, because it neither accurately describes what it does, nor rolls off the tongue!</p>
+<p>RAII is built upon <em>destructors</em>. You have those in Python, too:</p>
+<pre><code class="language-python"># Python program to illustrate destructor
+class Employee:
+ 
+    # Initializing
+    def __init__(self):
+        print('Employee created.')
+ 
+    # Deleting (Calling destructor)
+    def __del__(self):
+        print('Destructor called, Employee deleted.')
+ 
+obj = Employee()
+del obj
+</code></pre>
+<p>The problem here is that the destructor fires when you call <code>del</code>---but if you let the garbage collector do the destruction, it's going to fire at some point in the future when a) you're done with the object, and b) Python notices that you're done with the object. So destructors don't get a lot of use in Python.</p>
+<p>In Rust, they are called <code>Drop</code>---and they are <em>everywhere</em>.</p>
+<p>Let's build a toy example:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct MyType {
+    label: String
+}
+
+impl Drop for MyType {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping {}&quot;, self.label);
+    }
+}
+
+fn main() {
+    let var = MyType { label: String::from(&quot;MyType&quot;) };
+}</code></pre></pre>
+<p>If you run this, it prints <code>Dropping MyType</code>. The destructor runs because the <code>main</code> function is ending, and the variable it owns is no longer in scope.</p>
+<p>How about if you <em>move</em> it?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct MyType {
+    label: String
+}
+
+impl Drop for MyType {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping {}&quot;, self.label);
+    }
+}
+
+fn move_here(var: MyType) {
+    println!(&quot;Ending move_here&quot;);
+}
+
+fn main() {
+    println!(&quot;Starting&quot;);
+    let var = MyType { label: String::from(&quot;MyType&quot;) };
+    move_here(var);
+    println!(&quot;Ending&quot;);
+}</code></pre></pre>
+<p>This prints:</p>
+<pre><code>Starting
+Ending move_here
+Dropping MyType
+Ending
+</code></pre>
+<p>When you <em>move</em> the variable, it's owning scope changes to the <code>move_here</code> function - so when the variable leaves the function, it is dropped. Immediately, with no delay.</p>
+<p>How about borrowing?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct MyType {
+    label: String
+}
+
+impl Drop for MyType {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping {}&quot;, self.label);
+    }
+}
+
+fn borrow_here(var: &amp;MyType) {
+    println!(&quot;Ending move_here&quot;);
+}
+
+fn main() {
+    println!(&quot;Starting&quot;);
+    let var = MyType { label: String::from(&quot;MyType&quot;) };
+    borrow_here(&amp;var);
+    println!(&quot;Ending&quot;);
+}</code></pre></pre>
+<p>Now you get:</p>
+<pre><code>Starting
+Ending move_here
+Ending
+Dropping MyType
+</code></pre>
+<p>Ownership is never transferred into the <code>borrow_here</code> function---so the variable is destroyed at the end of <code>main()</code>.</p>
+<p>What about if I want to kill it now?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct MyType {
+    label: String
+}
+
+impl Drop for MyType {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping {}&quot;, self.label);
+    }
+}
+
+fn main() {
+    let var = MyType { label: String::from(&quot;MyType&quot;) };
+    std::mem::drop(var);
+    println!(&quot;Program end&quot;);
+}</code></pre></pre>
+<p><code>drop</code> lets you delete it immediately. If you try and use <code>var</code> after you drop it, the program won't compile. No &quot;use after free&quot; bugs here!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transitive-drop"><a class="header" href="#transitive-drop">Transitive Drop</a></h1>
+<p><code>Drop</code> is deep and consistent. If you make a vector of types, when the vector goes away---so does every type. (Vectors are even on the heap!)</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct MyType {
+    label: String
+}
+
+impl Drop for MyType {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping {}&quot;, self.label);
+    }
+}
+
+fn main() {
+    let mut vec = Vec::new();
+    for i in 0 .. 10 {
+        let var = MyType { label: format!(&quot;MyType {i}&quot;) };
+        vec.push(var);
+    }
+}</code></pre></pre>
+<blockquote>
+<p>Drop is automatically present, so <code>MyType</code> would still be dropped if you <em>didn't</em> implement <code>Drop</code>---but implementing it lets us see that it's working!</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-benchmarking"><a class="header" href="#rust-benchmarking">Rust Benchmarking</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="supercharge-pyton-with-pyo3"><a class="header" href="#supercharge-pyton-with-pyo3">Supercharge Pyton with PyO3</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fibonacci-python"><a class="header" href="#fibonacci-python">Fibonacci Python</a></h1>
+<p>Remember we were playing with Fibonacci numbers in Rust? Let's try a Python equivalent:</p>
+<pre><code class="language-python">#/usr/bin/python3
+import time
+
+def recur_fibo(n):
+   if n &lt;= 1:
+       return n
+   else:
+       return(recur_fibo(n-1) + recur_fibo(n-2))
+
+results = []
+t0 = time.time()
+for i in range(40):
+    results.append(recur_fibo(i))
+t1 = time.time()
+
+print(results)
+print(&quot;Time: &quot;, t1-t0)
+</code></pre>
+<p>On my workstation, it finished in 11.176 seconds.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="common-rust-performance-pitfalls"><a class="header" href="#common-rust-performance-pitfalls">Common Rust Performance Pitfalls</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="qa-and-discussion"><a class="header" href="#qa-and-discussion">QA and Discussion</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

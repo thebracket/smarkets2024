@@ -1,0 +1,9 @@
+workspace = { members = [ "async/async_hello", "async/async_join", "async/async_join_blocking", "async/async_join_yield", "async/async_tcp", "python/rfib", "safety/rust_racey", "threads/fib_rayon","threads/fib_sync", "threads/rayon_join", "threads/rayon_spawn", "threads/regular_threads", "threads/regular_threads_return", "threads/scoped_threads", "threads/sort_rayon", "threads/thread_channels"] }
+[package]
+name = "code"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
