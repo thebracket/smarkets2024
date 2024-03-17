@@ -10,3 +10,10 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = "0"
 rayon = "1.9.0"
+
+# Extra flags to make the Mac happy
+[target.aarch64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-undefined",
+  "-C", "link-arg=dynamic_lookup",
+]
