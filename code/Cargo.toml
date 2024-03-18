@@ -13,7 +13,7 @@ members = [
     "async/async_join", 
     "async/async_join_blocking", 
     "async/async_join_yield", 
-    "async/async_tcp", 
+    "async/async_tcp", "memory/arena_demo", "memory/slots", 
     "safety/rust_racey", 
     "threads/fib_rayon",
     "threads/fib_sync", 

@@ -29,6 +29,8 @@
     - [Smart Pointers](./memory/memory_box.md)
     - [Shared Ownership](./memory/memory_rc.md)
     - [Threaded Shared Ownership](./memory/memory_arc.md)
+    - [Cyclic References](./memory/memory_cycles.md)
+    - [Arenas](./memory/memory_arenas.md)
     - [Wrap Up](./memory/memory_wrap.md)
 - [Measure Twice, Code Once](./benchmark_intro.md)
 - [Supercharge Pyton with PyO3](./pyo3_intro.md)
