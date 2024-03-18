@@ -1,4 +1,7 @@
 code/target
 code/python/rfib/target
+code/python/rfib/librfib*
+code/python/rclass/target
+code/python/rclass/librclass*
 code/benchmark/flame_me/target
 manual/book

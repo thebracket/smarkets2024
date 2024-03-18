@@ -1,0 +1,20 @@
+[package]
+name = "rclass"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "rclass"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0"
+
+# Extra flags to make the Mac happy
+[target.aarch64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-undefined",
+  "-C", "link-arg=dynamic_lookup",
+]

@@ -1,5 +1,7 @@
 # Fibonacci Python
 
+Let's start by working with some slow Python.
+
 Remember we were playing with Fibonacci numbers in Rust? Let's try a Python equivalent:
 
 ```python

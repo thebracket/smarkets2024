@@ -27,6 +27,7 @@ members = [
     "benchmark/crition_bench", 
     "benchmark/tracing_example", 
     "memory/arena_demo", 
-    "memory/slots",
+    "memory/slots", 
+    "python/rust_call_python",
 ]
-exclude = [ "python/rfib", "benchmark/flame_me" ]
+exclude = [ "python/rfib", "benchmark/flame_me", "python/rclass", ]
