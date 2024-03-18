@@ -1,0 +1,3 @@
+# Allocating in the Hot Loop
+
+This is an extension of what we listed before. If you are doing something over and over, whenever possible you want to try and amortize allocations outside of the hot loop. Occasionally adding to a vector may not matter. Having the vector re-allocate mid critical section can be a performance disaster---and can be tough to track down without heavy profiling, if the number of iterations varies.

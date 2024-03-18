@@ -1,5 +1,8 @@
 ![](images/ardanlabs-logo.png)
 
+The full code for this is available here:
+[https://github.com/thebracket/smarkets2024](https://github.com/thebracket/smarkets2024)
+
 ## About the Trainer
 
 Herbert has been developing software professionally for more than 20 years. Starting with BASIC, Pascal, and then moving onto C and C++, Herbert has developed custom applications ranging from web-server filters to games. Herbert is the author of Hands-on Rust and Rust Brain Teasers.
