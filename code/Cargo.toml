@@ -13,7 +13,7 @@ members = [
     "async/async_join", 
     "async/async_join_blocking", 
     "async/async_join_yield", 
-    "async/async_tcp", "memory/arena_demo", "memory/slots", 
+    "async/async_tcp",  
     "safety/rust_racey", 
     "threads/fib_rayon",
     "threads/fib_sync", 
@@ -23,6 +23,10 @@ members = [
     "threads/regular_threads_return", 
     "threads/scoped_threads", 
     "threads/sort_rayon", 
-    "threads/thread_channels"
+    "threads/thread_channels",
+    "benchmark/crition_bench", 
+    "benchmark/tracing_example", 
+    "memory/arena_demo", 
+    "memory/slots",
 ]
-exclude = [ "python/rfib" ]
+exclude = [ "python/rfib", "benchmark/flame_me" ]
